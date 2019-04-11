@@ -14,8 +14,8 @@ class Main extends Component {
         this.state = {
             randomColor: 'rgb(0, 0, 254)',
             colors: ["rgb(0, 0, 254)", "rgb(0, 0, 254)", "rgb(0, 0, 254)","rgb(0, 0, 254)","rgb(0, 0, 254)","rgb(0, 0, 254)"],
-            win: " ",
-            again: "New colors",
+            status: " ",
+            playAgain: "New colors",
             backgroundHead: "rgb(0, 0, 254)"
         }
     }
@@ -34,8 +34,8 @@ class Main extends Component {
         this.setState ({
             colors: Colors,
             randomColor: Colors[random],
-            win: "",
-            again: "New Colors",
+            status: "",
+            playAgain: "New Colors",
             backgroundHead: "rgb(0, 0, 254)"
         })
     }
@@ -50,15 +50,15 @@ class Main extends Component {
                 arrayColors[i] = headColor;
             }
             this.setState ({
-                win: "Correct!",
-                again: "Play again?",
+                status: "Correct!",
+                playAgain: "Play again?",
                 colors: arrayColors,
                 backgroundHead: color
             })
         }
        else{
             this.setState ({
-                win: "Try again",
+                status: "Try again",
         })  
     }
     
@@ -76,8 +76,8 @@ class Main extends Component {
                 </Header>
             </section>
             <Buttons>
-                <Button color={this.state.backgroundHead} onClick={()=> this.generationColors(this.state.colors.length ? this.state.colors.length : 6)}>{this.state.again}</Button>
-                <Correct className="word-correct">{this.state.win}</Correct>
+                <Button color={this.state.backgroundHead} onClick={()=> this.generationColors(this.state.colors.length ? this.state.colors.length : 6)}>{this.state.playAgain}</Button>
+                <Correct className="word-correct">{this.state.status}</Correct>
                 <Button color={this.state.backgroundHead} className="easy-btn btn" onClick={()=> this.generationColors(3)}>Easy</Button>
                 <Button color={this.state.backgroundHead} className="hard-btn btn" onClick={()=> this.generationColors(6)}>Hard</Button>
             </Buttons>
