@@ -58,7 +58,7 @@ class Main extends Component {
         }
        else{
             this.setState ({
-                status: "Try again",
+                status: "Try again...",
         })  
     }
     
