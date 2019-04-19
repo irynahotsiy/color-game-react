@@ -60,10 +60,12 @@ export const Colors = styled.div `
     padding-top: 50px;
     margin: 0px auto;
     max-width: 600px;
+    visibility:
 `
     
 export const Color = styled.div `
-     width: 30%;
+    visibility: ${ props => props.visibility ? "visible" : "hidden"};
+    width: 30%;
     color: white;
     background: ${ props => props.color };
     padding-bottom: 30%;
