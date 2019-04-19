@@ -20,6 +20,7 @@ class Main extends Component {
   }
 
   generateColors = count => {
+    debugger;
     let Colors = [];
 
     for (let i = 0; i < count; i++) {
@@ -31,13 +32,10 @@ class Main extends Component {
         ", " +
         Math.floor(Math.random() * 255) +
         ")";
-      // Colors.push(col);
-      Colors.push({ color: col, vis: true });
+      Colors.push({ color: col, vis: true, id: i });
     }
 
     let random = Math.floor(Math.random() * Colors.length);
-    console.log(Colors);
-    console.log(random);
     this.setState({
       colors: Colors,
       randomColor: Colors[random].color,
@@ -52,10 +50,8 @@ class Main extends Component {
   }
 
   onClickColor = color => {
-    debugger;
     let arrayColors = this.state.colors;
     let headColor = this.state.randomColor;
-    console.log(headColor);
     if (color.color === headColor) {
       for (let i = 0; i < arrayColors.length; i++) {
         arrayColors[i].color = headColor;  
@@ -115,7 +111,8 @@ class Main extends Component {
         <Colors>
           {this.state.colors.map(el => (
             <Color
-              visibility={el.vis}
+              key={el.id}
+              isVisible={el.vis}
               color={el.color}
               onClick={() => this.onClickColor(el)}
             />
